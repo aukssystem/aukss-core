@@ -4,48 +4,224 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>aukss core</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 48px;
-      background: #000;
-      color: #fff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.58);
+      --line: rgba(255,255,255,.14);
+      --line2: rgba(255,255,255,.22);
+      --card: rgba(255,255,255,.04);
+      --cardHover: rgba(255,255,255,.07);
+      --shadow: 0 16px 40px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 980px;
     }
-    h1 {
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 20px 64px;
+    }
+
+    header{
+      padding: 8px 0 28px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:0 0 14px;
+    }
+
+    h1{
+      font-size: 20px;
       font-weight: 500;
-      margin-bottom: 24px;
+      letter-spacing: .2px;
+      margin:0;
     }
-    p {
-      max-width: 640px;
+
+    .tag{
+      font-size: 13px;
+      color: var(--muted2);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .lead{
+      margin:0;
+      max-width: 72ch;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    @media (min-width: 760px){
+      .grid{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+    }
+
+    .card{
+      position: relative;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      min-height: 180px;
+      box-shadow: none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      overflow:hidden;
+    }
+
+    .card:hover{
+      transform: translateY(-2px);
+      background: var(--cardHover);
+      border-color: var(--line2);
+    }
+
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin: 0 0 10px;
+    }
+
+    .title{
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .desc{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      padding-bottom: 2px;
+    }
+
+    .cta:focus{
+      outline: 2px solid rgba(255,255,255,.35);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+    }
+
+    footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted2);
+      font-size: 13px;
       line-height: 1.6;
     }
-    a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid #555;
-    }
-    .links {
-      margin-top: 40px;
-    }
-    .links p {
-      margin: 12px 0;
+
+    .dot{
+      display:inline-block;
+      width:6px;
+      height:6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.28);
+      margin: 0 8px;
+      transform: translateY(-1px);
     }
   </style>
 </head>
 <body>
+  <main class="wrap">
+    <header>
+      <div class="brand">
+        <h1>aukss core</h1>
+        <span class="tag">veiklų žemėlapis</span>
+      </div>
+      <p class="lead">
+        Čia sutelktos mūsų veiklos – skirtingos formos tam pačiam požiūriui į darbą, žmones ir prasmę.
+      </p>
+    </header>
 
-  <h1>aukss core</h1>
+    <section class="grid" aria-label="Veiklos">
+      <article class="card">
+        <p class="kicker">daiktai</p>
+        <h2 class="title">Kuriame daiktus</h2>
+        <p class="desc">
+          Rankų darbo žvakės ir kiti apčiuopiami objektai – lėtas, tikras kūrimas su realia medžiaga ir procesu.
+        </p>
+        <a class="cta" href="https://aukss.eu" target="_blank" rel="noopener">
+          Eiti į aukss.eu <span aria-hidden="true">→</span>
+        </a>
+      </article>
 
-  <p>
-    Čia sutelktos mūsų kuriamos veiklos – skirtingos formos tam pačiam požiūriui į darbą, žmones ir prasmę.
-  </p>
+      <article class="card">
+        <p class="kicker">consulting</p>
+        <h2 class="title">Padedame susiorientuoti</h2>
+        <p class="desc">
+          Kai stringa veikla, procesai ar susikalbėjimas – padedame įvardinti situaciją, susidėlioti prioritetus ir judėti realistiškai.
+        </p>
+        <a class="cta" href="https://consulting.aukss.eu" target="_blank" rel="noopener">
+          Eiti į konsultacijas <span aria-hidden="true">→</span>
+        </a>
+      </article>
 
-  <div class="links">
-    <p><a href="https://aukss.eu">Kuriame daiktus → aukss.eu</a></p>
-    <p><a href="https://consulting.aukss.eu">Konsultacijos → consulting</a></p>
-    <p><a href="#">Pilietinės iniciatyvos → NVO</a></p>
-  </div>
+      <article class="card">
+        <p class="kicker">nvo</p>
+        <h2 class="title">Veikiame bendruomenėje</h2>
+        <p class="desc">
+          Pilietinės iniciatyvos ir projektai, kurie kuria poveikį už mūsų pačių ribų – praktiškai, mažais žingsniais.
+        </p>
+        <!-- TODO: pakeisk # į tikrą NVO puslapio nuorodą -->
+        <a class="cta" href="#" title="Įrašykite NVO nuorodą">
+          Eiti į iniciatyvas <span aria-hidden="true">→</span>
+        </a>
+      </article>
+    </section>
 
+    <footer>
+      Šis puslapis skirtas orientacijai <span class="dot"></span> jei kalbamės apie konkrečią kryptį – tiesiog pasirinkite ją aukščiau.
+    </footer>
+  </main>
 </body>
 </html>
