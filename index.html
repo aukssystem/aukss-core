@@ -19,9 +19,8 @@
       --line2: rgba(255,255,255,.22);
       --card: rgba(255,255,255,.04);
       --cardHover: rgba(255,255,255,.07);
-      --shadow: 0 16px 40px rgba(0,0,0,.55);
       --radius: 18px;
-      --max: 980px;
+      --max: 1040px;
     }
 
     *{ box-sizing:border-box; }
@@ -72,7 +71,7 @@
 
     .lead{
       margin:0;
-      max-width: 72ch;
+      max-width: 76ch;
       font-size: 16px;
       line-height: 1.7;
       color: var(--muted);
@@ -87,19 +86,17 @@
 
     @media (min-width: 760px){
       .grid{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 16px;
       }
     }
 
     .card{
-      position: relative;
       border: 1px solid var(--line);
       background: var(--card);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
-      min-height: 180px;
-      box-shadow: none;
+      min-height: 178px;
       transition: transform .18s ease, background .18s ease, border-color .18s ease;
       overflow:hidden;
     }
@@ -132,7 +129,7 @@
       color: var(--muted);
     }
 
-    .cta{
+    a.cta{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -145,10 +142,37 @@
       padding-bottom: 2px;
     }
 
-    .cta:focus{
+    a.cta:focus{
       outline: 2px solid rgba(255,255,255,.35);
       outline-offset: 3px;
       border-bottom-color: transparent;
+    }
+
+    /* coming soon card */
+    .card.soon{
+      background: rgba(255,255,255,.03);
+    }
+    .card.soon:hover{
+      transform: none;
+      background: rgba(255,255,255,.03);
+      border-color: var(--line);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted2);
+      border: 1px dashed rgba(255,255,255,.24);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+    .badge .dot{
+      width:6px;
+      height:6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.28);
     }
 
     footer{
@@ -158,16 +182,6 @@
       color: var(--muted2);
       font-size: 13px;
       line-height: 1.6;
-    }
-
-    .dot{
-      display:inline-block;
-      width:6px;
-      height:6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.28);
-      margin: 0 8px;
-      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -201,26 +215,37 @@
         <p class="desc">
           Kai stringa veikla, procesai ar susikalbėjimas – padedame įvardinti situaciją, susidėlioti prioritetus ir judėti realistiškai.
         </p>
-        <a class="cta" href="https://consulting.aukss.eu" target="_blank" rel="noopener">
+        <a class="cta" href="https://consulting.aukss.eu/" target="_blank" rel="noopener">
           Eiti į konsultacijas <span aria-hidden="true">→</span>
         </a>
       </article>
 
       <article class="card">
-        <p class="kicker">nvo</p>
+        <p class="kicker">pilietinės iniciatyvos</p>
         <h2 class="title">Veikiame bendruomenėje</h2>
         <p class="desc">
           Pilietinės iniciatyvos ir projektai, kurie kuria poveikį už mūsų pačių ribų – praktiškai, mažais žingsniais.
         </p>
-        <!-- TODO: pakeisk # į tikrą NVO puslapio nuorodą -->
-        <a class="cta" href="#" title="Įrašykite NVO nuorodą">
-          Eiti į iniciatyvas <span aria-hidden="true">→</span>
+        <a class="cta" href="https://www.linkedin.com/company/pilinvestment/posts/?feedView=all" target="_blank" rel="noopener">
+          Žiūrėti iniciatyvas <span aria-hidden="true">→</span>
         </a>
+      </article>
+
+      <article class="card soon" aria-disabled="true">
+        <p class="kicker">digital products</p>
+        <h2 class="title">Kuriame sistemas</h2>
+        <p class="desc">
+          Skaitmeniniai produktai ir šablonai, skirti aiškumui ir darbui su mažiau triukšmo – šiuo metu ruošiama.
+        </p>
+        <div class="badge" title="Kol kas be nuorodos">
+          <span class="dot" aria-hidden="true"></span>
+          Coming soon
+        </div>
       </article>
     </section>
 
     <footer>
-      Šis puslapis skirtas orientacijai <span class="dot"></span> jei kalbamės apie konkrečią kryptį – tiesiog pasirinkite ją aukščiau.
+      Šis puslapis skirtas orientacijai – jei kalbamės apie konkrečią kryptį, tiesiog pasirinkite ją aukščiau.
     </footer>
   </main>
 </body>
