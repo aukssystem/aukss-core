@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aukss | Core activities </title>
+  <title>Aukss | Core activities</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,11 +56,48 @@
       color: var(--muted);
     }
 
+    /* LinkedIn pill buttons */
+
+    .quicklinks{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    a.pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:500;
+      color:var(--fg);
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:8px 14px;
+      border-radius:999px;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    a.pill:hover{
+      background: var(--cardHover);
+      transform: translateY(-1px);
+    }
+
+    .pill svg{
+      width:16px;
+      height:16px;
+      opacity:.85;
+    }
+
+    /* Cards */
+
     .grid{
       display:grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      margin-top: 32px;
+      margin-top: 40px;
     }
 
     @media (min-width: 760px){
@@ -107,22 +144,43 @@
       padding-bottom: 2px;
     }
 
-    /* Coming soon */
     .soon{
       opacity: .75;
     }
+
   </style>
 </head>
 <body>
+
   <main class="wrap">
+
     <header>
-      <h1> Donatas ir Sigita Auksoriai</h1>
+      <h1>Donatas ir Sigita Auksoriai</h1>
+
       <p class="lead">
         Čia sutelktos mūsų veiklos, kuriose kuriame.
       </p>
+
+      <div class="quicklinks">
+        <a class="pill" href="https://www.linkedin.com/in/donatas-auksorius-45664757" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56c3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28c-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
+          </svg>
+          Donatas LinkedIn →
+        </a>
+
+        <a class="pill" href="https://www.linkedin.com/in/sigita-auksor%C4%97" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56c3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28c-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
+          </svg>
+          Sigita LinkedIn →
+        </a>
+      </div>
+
     </header>
 
     <section class="grid">
+
       <article class="card">
         <h2 class="title">E. prekyba / produktai (aukss.eu)</h2>
         <p class="desc">
@@ -159,7 +217,10 @@
           Skaitmeniniai produktai ir sistemos. Ruošiama.
         </p>
       </article>
+
     </section>
+
   </main>
+
 </body>
 </html>
