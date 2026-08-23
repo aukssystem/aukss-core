@@ -3,227 +3,363 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aukss | Core activities</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Aukss | Veiklų ekosistema</title>
+  <meta name="description" content="Aukss – Donato ir Sigitos Auksorių veiklų ekosistema: produktai, konsultacijos, bendruomeninės iniciatyvos ir skaitmeniniai sprendimai." />
+  <link rel="canonical" href="https://core.aukss.eu/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="lt_LT" />
+  <meta property="og:title" content="Aukss | Veiklų ekosistema" />
+  <meta property="og:description" content="Praktikoje gimusias idėjas paverčiame produktais, veikimo sistemomis ir ilgalaikio poveikio iniciatyvomis." />
+  <meta property="og:url" content="https://core.aukss.eu/" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#000;
-      --fg:#fff;
-      --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.14);
-      --card: rgba(255,255,255,.04);
-      --cardHover: rgba(255,255,255,.07);
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --muted: rgba(255, 255, 255, .68);
+      --soft: rgba(255, 255, 255, .48);
+      --line: rgba(255, 255, 255, .14);
+      --line-strong: rgba(255, 255, 255, .28);
+      --card: rgba(255, 255, 255, .04);
+      --card-hover: rgba(255, 255, 255, .075);
+      --accent: #d3ad39;
       --radius: 18px;
       --max: 1040px;
     }
 
-    *{ box-sizing:border-box; }
+    * { box-sizing: border-box; }
 
-    body{
-      margin:0;
-      background: var(--bg);
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(760px 420px at 14% -12%, rgba(211, 173, 57, .11), transparent 64%),
+        var(--bg);
       color: var(--fg);
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    .wrap{
-      max-width: var(--max);
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
-      padding: 64px 20px 72px;
+      padding-bottom: 44px;
     }
 
-    header{
-      margin-bottom: 40px;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 78px;
+      border-bottom: 1px solid var(--line);
     }
 
-    h1{
-      font-size: 22px;
-      font-weight: 500;
-      margin: 0 0 14px;
-      letter-spacing: .2px;
-    }
-
-    .lead{
-      margin:0;
-      max-width: 72ch;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
       font-size: 16px;
-      line-height: 1.7;
+      font-weight: 600;
+      letter-spacing: .01em;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(211, 173, 57, .11);
+    }
+
+    .people {
+      display: flex;
+      gap: 8px;
+    }
+
+    .person {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
       color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .15s ease, border-color .15s ease, background .15s ease;
     }
 
-    /* LinkedIn pill buttons */
-
-    .quicklinks{
-      margin-top: 18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .person:hover {
+      color: var(--fg);
+      border-color: var(--line-strong);
+      background: var(--card);
     }
 
-    a.pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:14px;
-      font-weight:500;
-      color:var(--fg);
-      text-decoration:none;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      padding:8px 14px;
-      border-radius:999px;
-      transition: background .15s ease, transform .15s ease;
+    .person svg {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 auto;
     }
 
-    a.pill:hover{
-      background: var(--cardHover);
-      transform: translateY(-1px);
+    .hero {
+      max-width: 860px;
+      padding: 90px 0 68px;
     }
 
-    .pill svg{
-      width:16px;
-      height:16px;
-      opacity:.85;
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
 
-    /* Cards */
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(38px, 6.5vw, 66px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
 
-    .grid{
-      display:grid;
+    .lead {
+      max-width: 760px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.7;
+    }
+
+    .principle {
+      margin: 22px 0 0;
+      color: var(--soft);
+      font-size: 14px;
+      letter-spacing: .01em;
+    }
+
+    .grid {
+      display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
     }
 
-    @media (min-width: 760px){
-      .grid{
-        grid-template-columns: 1fr 1fr;
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 224px;
+      overflow: hidden;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -110px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(211, 173, 57, .07), transparent 68%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      background: var(--card-hover);
+    }
+
+    .number {
+      margin-bottom: 30px;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .1em;
+    }
+
+    .title {
+      margin: 0 0 11px;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -.01em;
+    }
+
+    .desc {
+      max-width: 52ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .cta {
+      align-self: flex-start;
+      margin-top: auto;
+      padding-top: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, .34);
+      color: var(--fg);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .cta:hover { border-color: var(--accent); }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 0;
+      }
+
+      .people { width: 100%; }
+      .person { flex: 1; justify-content: center; }
+
+      .hero { padding: 64px 0 52px; }
+      .grid { padding-top: 28px; }
+      .card { min-height: 0; }
+      .cta { margin-top: 24px; }
+
+      .footer {
+        flex-direction: column;
+        margin-top: 48px;
       }
     }
 
-    .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 20px;
-      min-height: 170px;
-      transition: transform .15s ease, background .15s ease;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card, .person { transition: none; }
     }
-
-    .card:hover{
-      transform: translateY(-2px);
-      background: var(--cardHover);
-    }
-
-    .title{
-      font-size: 16px;
-      font-weight: 500;
-      margin: 0 0 10px;
-    }
-
-    .desc{
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-
-    a.cta{
-      display:inline-block;
-      margin-top: 14px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,.35);
-      padding-bottom: 2px;
-    }
-
-    .soon{
-      opacity: .75;
-    }
-
   </style>
 </head>
+
 <body>
-
   <main class="wrap">
+    <nav class="topbar" aria-label="Pagrindinė navigacija">
+      <a class="brand" href="#" aria-label="Aukss pradžia">
+        <span class="mark" aria-hidden="true"></span>
+        Aukss
+      </a>
 
-    <header>
-      <h1>Donatas ir Sigita Auksoriai</h1>
-
-      <p class="lead">
-        Tai mūsų veiklos žemėlapis – nuo idėjos iki sistemos ir ilgalaikio poveikio.
-      </p>
-
-      <div class="quicklinks">
-        <a class="pill" href="https://www.linkedin.com/in/donatas-auksorius-45664757" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56c3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28c-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
+      <div class="people" aria-label="Kūrėjai">
+        <a class="person" href="https://www.linkedin.com/in/donatas-auksorius-45664757" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56 3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
           </svg>
-          Donatas →
+          Donatas
         </a>
 
-        <a class="pill" href="https://www.linkedin.com/in/sigita-auksor%C4%97" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56c3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28c-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
+        <a class="person" href="https://www.linkedin.com/in/sigita-auksor%C4%97" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56 3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
           </svg>
-          Sigita →
+          Sigita
         </a>
       </div>
+    </nav>
 
+    <header class="hero">
+      <p class="eyebrow">Donato ir Sigitos Auksorių veiklų ekosistema</p>
+      <h1>Nuo praktikoje gimusios idėjos iki veikiančios sistemos ir ilgalaikio poveikio.</h1>
+      <p class="lead">
+        Kuriame produktus, padedame organizacijoms susidėlioti veikimą,
+        testuojame skaitmeninius sprendimus ir investuojame laiką į bendruomenines iniciatyvas.
+      </p>
+      <p class="principle">Aiškumas prieš įrankius. Praktika prieš teoriją.</p>
     </header>
 
-    <section class="grid">
-
+    <section class="grid" aria-label="Aukss veiklų kryptys">
       <article class="card">
-        <h2 class="title">Produktai (aukss.eu)</h2>
+        <span class="number">01 · PRODUKTAI</span>
+        <h2 class="title">Idėja nuo Aukss</h2>
         <p class="desc">
-          Idėjos, kurios tampa apčiuopiamais sprendimais. Kuriame ir testuojame produktus, kurie gimsta iš realios praktikos.
+          Iš realių poreikių gimstančios idėjos, kurias kuriame,
+          testuojame ir paverčiame apčiuopiamais produktais.
         </p>
-        <a class="cta" href="https://aukss.eu" target="_blank" rel="noopener">
-          Idėja nuo Aukss →
-        </a>
+        <a class="cta" href="https://aukss.eu" target="_blank" rel="noopener noreferrer">Atrasti produktus →</a>
       </article>
 
       <article class="card">
-        <h2 class="title">Konsultacijos</h2>
+        <span class="number">02 · KONSULTACIJOS</span>
+        <h2 class="title">Auks Consulting</h2>
         <p class="desc">
-          Aiškumas prieš sprendimą. Padedame susidėlioti struktūrą, kai veikla stringa arba reikia krypties.
+          Išorinė perspektyva ir struktūruotas pokalbis, kai veikla stringa,
+          problema neaiški arba reikia atsakingai pasirinkti kitą žingsnį.
         </p>
-        <a class="cta" href="https://consulting.aukss.eu/" target="_blank" rel="noopener">
-          Konsultacijos →
-        </a>
+        <a class="cta" href="https://consulting.aukss.eu/" target="_blank" rel="noopener noreferrer">Peržiūrėti konsultacijas →</a>
       </article>
 
       <article class="card">
-        <h2 class="title">Bendruomenė</h2>
+        <span class="number">03 · BENDRUOMENĖ</span>
+        <h2 class="title">Ilgalaikio poveikio iniciatyvos</h2>
         <p class="desc">
-          Pokytis per mažus, nuoseklius žingsnius. Veikiame ten, kur ilgalaikis poveikis svarbiau už momentinį rezultatą.
+          Nuoseklus darbas ten, kur bendruomenės pokytis svarbiau už momentinį rezultatą,
+          o realus poveikis kuriamas mažais žingsniais.
         </p>
-        <a class="cta" href="https://www.linkedin.com/company/pilinvestment/posts/?feedView=all" target="_blank" rel="noopener">
-          NVO →
-        </a>
+        <a class="cta" href="https://www.linkedin.com/company/pilinvestment/posts/?feedView=all" target="_blank" rel="noopener noreferrer">Peržiūrėti iniciatyvą →</a>
       </article>
 
       <article class="card">
-        <h2 class="title">Skaitmeniniai sprendimai</h2>
+        <span class="number">04 · SKAITMENINIAI SPRENDIMAI</span>
+        <h2 class="title">Auks Digital</h2>
         <p class="desc">
-          Sistemos, kurios leidžia veikti stabiliai. Kuriame operacines struktūras, kurios strategiją paverčia vykdymu.
+          Operacinės sistemos, diagnostikos ir nedideli skaitmeniniai prototipai,
+          kurie padeda strategiją paversti valdomu kasdieniu veikimu.
         </p>
-        <a class="cta" href="https://digital.aukss.eu">
-          Skaitmeniniai sprendimai →
-        </a>
+        <a class="cta" href="https://digital.aukss.eu/" target="_blank" rel="noopener noreferrer">Atrasti Auks Digital →</a>
       </article>
-
     </section>
 
+    <footer class="footer">
+      <span>© 2026 Aukss</span>
+      <span>Donatas ir Sigita Auksoriai</span>
+    </footer>
   </main>
-
 </body>
 </html>
