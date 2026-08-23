@@ -89,9 +89,41 @@
       box-shadow: 0 0 0 5px rgba(211, 173, 57, .11);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
     .people {
       display: flex;
       gap: 8px;
+    }
+
+    .language {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .language button {
+      min-width: 38px;
+      padding: 6px 8px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--soft);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .language button[aria-pressed="true"] {
+      background: var(--fg);
+      color: var(--bg);
     }
 
     .person {
@@ -258,7 +290,12 @@
         padding: 20px 0;
       }
 
-      .people { width: 100%; }
+      .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .people { width: auto; }
       .person { flex: 1; justify-content: center; }
 
       .hero { padding: 64px 0 52px; }
@@ -287,7 +324,13 @@
         Aukss
       </a>
 
-      <div class="people" aria-label="Kūrėjai">
+      <div class="nav-actions">
+        <div class="language" aria-label="Kalba">
+          <button id="lang-lt" type="button" aria-pressed="true">LT</button>
+          <button id="lang-en" type="button" aria-pressed="false">EN</button>
+        </div>
+
+        <div class="people" aria-label="Kūrėjai">
         <a class="person" href="https://www.linkedin.com/in/donatas-auksorius-45664757" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5A2.5 2.5 0 0 1 4.98 3.5ZM3.5 9h3v11.5h-3V9Zm7 0h2.9v1.6h.04c.4-.76 1.4-1.56 2.9-1.56 3.1 0 3.7 2.04 3.7 4.7v6.76h-3v-5.99c0-1.43-.02-3.28-2-3.28-2 0-2.3 1.56-2.3 3.17v6.1h-3V9Z"/>
@@ -301,6 +344,7 @@
           </svg>
           Sigita
         </a>
+        </div>
       </div>
     </nav>
 
@@ -361,5 +405,85 @@
       <span>Donatas ir Sigita Auksoriai</span>
     </footer>
   </main>
+
+  <script>
+    const coreTranslations = {
+      "Donato ir Sigitos Auksorių veiklų ekosistema": "The activity ecosystem of Donatas and Sigita Auksoriai",
+      "Nuo praktikoje gimusios idėjos iki veikiančios sistemos ir ilgalaikio poveikio.": "From an idea born in practice to a working system and lasting impact.",
+      "Kuriame produktus, padedame organizacijoms susidėlioti veikimą, testuojame skaitmeninius sprendimus ir investuojame laiką į bendruomenines iniciatyvas.": "We create products, help organizations structure how they work, test digital solutions and invest time in community initiatives.",
+      "Aiškumas prieš įrankius. Praktika prieš teoriją.": "Clarity before tools. Practice before theory.",
+      "Kūrėjai": "Creators",
+      "Kalba": "Language",
+      "Aukss pradžia": "Aukss home",
+      "Aukss veiklų kryptys": "Aukss activity areas",
+      "01 · PRODUKTAI": "01 · PRODUCTS",
+      "Idėja nuo Aukss": "An idea by Aukss",
+      "Iš realių poreikių gimstančios idėjos, kurias kuriame, testuojame ir paverčiame apčiuopiamais produktais.": "Ideas born from real needs that we create, test and turn into tangible products.",
+      "Atrasti produktus →": "Explore products →",
+      "02 · KONSULTACIJOS": "02 · CONSULTING",
+      "Išorinė perspektyva ir struktūruotas pokalbis, kai veikla stringa, problema neaiški arba reikia atsakingai pasirinkti kitą žingsnį.": "An external perspective and a structured conversation when work is stuck, the problem is unclear or the next step requires a considered decision.",
+      "Peržiūrėti konsultacijas →": "Explore consulting →",
+      "03 · BENDRUOMENĖ": "03 · COMMUNITY",
+      "Ilgalaikio poveikio iniciatyvos": "Long-term impact initiatives",
+      "Nuoseklus darbas ten, kur bendruomenės pokytis svarbiau už momentinį rezultatą, o realus poveikis kuriamas mažais žingsniais.": "Consistent work where community change matters more than immediate results and real impact is built through small steps.",
+      "Peržiūrėti iniciatyvą →": "Explore the initiative →",
+      "04 · SKAITMENINIAI SPRENDIMAI": "04 · DIGITAL SOLUTIONS",
+      "Operacinės sistemos, diagnostikos ir nedideli skaitmeniniai prototipai, kurie padeda strategiją paversti valdomu kasdieniu veikimu.": "Operating systems, diagnostics and focused digital prototypes that help turn strategy into manageable daily execution.",
+      "Atrasti Auks Digital →": "Explore Auks Digital →",
+      "Donatas ir Sigita Auksoriai": "Donatas and Sigita Auksoriai"
+    };
+
+    const coreMeta = {
+      lt: {
+        title: "Aukss | Veiklų ekosistema",
+        description: "Aukss – Donato ir Sigitos Auksorių veiklų ekosistema: produktai, konsultacijos, bendruomeninės iniciatyvos ir skaitmeniniai sprendimai.",
+        og: "Praktikoje gimusias idėjas paverčiame produktais, veikimo sistemomis ir ilgalaikio poveikio iniciatyvomis."
+      },
+      en: {
+        title: "Aukss | Activity ecosystem",
+        description: "Aukss is the activity ecosystem of Donatas and Sigita Auksoriai: products, consulting, community initiatives and digital solutions.",
+        og: "We turn ideas born in practice into products, operating systems and long-term impact initiatives."
+      }
+    };
+
+    const coreTextNodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const normalized = node.nodeValue.replace(/\s+/g, " ").trim();
+      if (coreTranslations[normalized]) coreTextNodes.push({ node, lt: normalized, en: coreTranslations[normalized] });
+    }
+
+    const coreAriaNodes = Array.from(document.querySelectorAll("[aria-label]")).map((element) => ({
+      element,
+      lt: element.getAttribute("aria-label"),
+      en: coreTranslations[element.getAttribute("aria-label")] || element.getAttribute("aria-label")
+    }));
+
+    function setCoreLanguage(language, save = true) {
+      const lang = language === "en" ? "en" : "lt";
+      document.documentElement.lang = lang;
+      coreTextNodes.forEach(({ node, lt, en }) => { node.nodeValue = lang === "en" ? en : lt; });
+      coreAriaNodes.forEach(({ element, lt, en }) => element.setAttribute("aria-label", lang === "en" ? en : lt));
+      document.title = coreMeta[lang].title;
+      document.querySelector('meta[name="description"]').setAttribute("content", coreMeta[lang].description);
+      document.querySelector('meta[property="og:title"]').setAttribute("content", coreMeta[lang].title);
+      document.querySelector('meta[property="og:description"]').setAttribute("content", coreMeta[lang].og);
+      document.getElementById("lang-lt").setAttribute("aria-pressed", String(lang === "lt"));
+      document.getElementById("lang-en").setAttribute("aria-pressed", String(lang === "en"));
+      if (save) {
+        try { localStorage.setItem("auks-language", lang); } catch (_) {}
+      }
+    }
+
+    document.getElementById("lang-lt").addEventListener("click", () => setCoreLanguage("lt"));
+    document.getElementById("lang-en").addEventListener("click", () => setCoreLanguage("en"));
+
+    let coreLanguage = "lt";
+    try {
+      if (localStorage.getItem("auks-language") === "en") coreLanguage = "en";
+    } catch (_) {}
+    setCoreLanguage(coreLanguage, false);
+  </script>
 </body>
 </html>
