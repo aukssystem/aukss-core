@@ -472,7 +472,9 @@
       document.getElementById("lang-lt").setAttribute("aria-pressed", String(lang === "lt"));
       document.getElementById("lang-en").setAttribute("aria-pressed", String(lang === "en"));
       if (save) {
-        try { localStorage.setItem("auks-language", lang); } catch (_) {}
+        try {
+          document.cookie = "auks-language=" + lang + "; Domain=.aukss.eu; Path=/; Max-Age=31536000; SameSite=Lax; Secure";
+        } catch (_) {}
       }
     }
 
@@ -481,7 +483,8 @@
 
     let coreLanguage = "lt";
     try {
-      if (localStorage.getItem("auks-language") === "en") coreLanguage = "en";
+      const match = document.cookie.match(/(?:^|; )auks-language=(lt|en)/);
+      if (match && match[1] === "en") coreLanguage = "en";
     } catch (_) {}
     setCoreLanguage(coreLanguage, false);
   </script>
